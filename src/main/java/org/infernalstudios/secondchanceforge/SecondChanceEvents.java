@@ -15,7 +15,7 @@ public class SecondChanceEvents {
     // Called when an entity takes damage
     @SubscribeEvent
     public void onEntityDamage(LivingDamageEvent event) {
-        LivingEntity entity = event.getEntityLiving();
+        LivingEntity entity = event.getEntity();
         DamageSource source = event.getSource();
 
         if (entity instanceof Player) {
