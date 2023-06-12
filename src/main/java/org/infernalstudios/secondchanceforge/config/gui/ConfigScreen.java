@@ -186,25 +186,25 @@ public class ConfigScreen extends Screen {
                 SecondChanceConfig.CONFIG.secondChanceRemainderPercent.get(), SecondChanceConfig.CONFIG.secondChanceRemainderPercent::set
         ));
 
-        addWidget(optionsRowList);
+        addRenderableWidget(optionsRowList);
 
-		addRenderableWidget(new Button((width - 200) / 2, height - 26, 200, 20, Component.translatable("gui.done"), button -> onClose()));
+		addRenderableWidget(Button.builder(Component.translatable("gui.done"), button -> onClose()).pos((width - 200) / 2, height - 26).size(200, 20).build());
 	}
 
-	@Override
-	public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks) {
-		renderBackground(matrixStack);
-
-		optionsRowList.render(matrixStack, mouseX, mouseY, partialTicks);
-
-		List<FormattedCharSequence> list = OptionsSubScreen.tooltipAt(optionsRowList, mouseX, mouseY);
-		if (list != null) {
-			this.renderTooltip(matrixStack, list, mouseX, mouseY);
-		}
-
-		// The parameter names for this function are wrong. The three integers at the end should be x, y, color
-		drawCenteredString(matrixStack, font, title, width / 2, 8, 0xFFFFFF);
-
-		super.render(matrixStack, mouseX, mouseY, partialTicks);
-	}
+//	@Override
+//	public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+//		renderBackground(matrixStack);
+//
+//		optionsRowList.render(matrixStack, mouseX, mouseY, partialTicks);
+//
+//		List<FormattedCharSequence> list = OptionsSubScreen.tooltipAt(optionsRowList, mouseX, mouseY);
+//		if (list != null) {
+//			this.renderTooltip(matrixStack, list, mouseX, mouseY);
+//		}
+//
+//		// The parameter names for this function are wrong. The three integers at the end should be x, y, color
+//		drawCenteredString(matrixStack, font, title, width / 2, 8, 0xFFFFFF);
+//
+//		super.render(matrixStack, mouseX, mouseY, partialTicks);
+//	}
 }

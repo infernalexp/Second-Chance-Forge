@@ -1,7 +1,7 @@
 modLoader="javafml" #mandatory
 
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
-loaderVersion="[41,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+loaderVersion="[45,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 
 license="MIT"
 
@@ -58,12 +58,12 @@ Special Thanks:
 [[dependencies.secondchanceforge]]
     modId="forge"
     mandatory=true
-    versionRange="[41,)"
+    versionRange="[45,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.secondchanceforge]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19,1.20)"
+    versionRange="[1.19.4,1.20)"
     ordering="NONE"
     side="BOTH"

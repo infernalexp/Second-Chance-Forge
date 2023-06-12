@@ -15,7 +15,7 @@ public class SecondChanceSoundEvents {
 
     public static final RegistryObject<SoundEvent> add(String id) {
         ResourceLocation realId = new ResourceLocation(SecondChanceForge.MOD_ID, id);
-        return SOUND_EVENTS.register(id, () -> new SoundEvent(realId));
+        return SOUND_EVENTS.register(id, () -> SoundEvent.createVariableRangeEvent(realId));
     }
 
     public static void register(IEventBus eventBus) {

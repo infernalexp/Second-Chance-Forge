@@ -1,5 +1,6 @@
 package org.infernalstudios.secondchanceforge;
 
+import net.minecraft.tags.DamageTypeTags;
 import org.infernalstudios.secondchanceforge.config.SecondChanceConfig;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -33,14 +34,14 @@ public class SecondChanceEvents {
     }
 
     private boolean canActivateSecondChance(DamageSource source) {
-        boolean activateForExplosion = SecondChanceConfig.CONFIG.secondChanceExplosions.get() && source.isExplosion();
+        boolean activateForExplosion = SecondChanceConfig.CONFIG.secondChanceExplosions.get() && source.is(DamageTypeTags.IS_EXPLOSION);
         boolean activateForMob = SecondChanceConfig.CONFIG.secondChanceMobs.get() && source.getMsgId().equals("mob");
         boolean activateForFallDamage = SecondChanceConfig.CONFIG.secondChanceFalls.get() && source.getMsgId().equals("fall");
         boolean activateForAnvil = SecondChanceConfig.CONFIG.secondChanceAnvils.get() && source.getMsgId().equals("anvil");
-        boolean activateForLightning = SecondChanceConfig.CONFIG.secondChanceLightning.get() && source.getMsgId().equals("lightningBolt");
+        boolean activateForLightning = SecondChanceConfig.CONFIG.secondChanceLightning.get() && source.is(DamageTypeTags.IS_LIGHTNING);
         boolean activateForElytraCrash = SecondChanceConfig.CONFIG.secondChanceElytraCrash.get() && source.getMsgId().equals("flyIntoWall");
         boolean activateForFallingBlocks = SecondChanceConfig.CONFIG.secondChanceFallingBlocks.get() && source.getMsgId().equals("fallingBlock");
-        boolean activateForMagic = SecondChanceConfig.CONFIG.secondChanceMagic.get() && source.isMagic();
+        boolean activateForMagic = SecondChanceConfig.CONFIG.secondChanceMagic.get() && (source.getMsgId().equals("magic") || source.getMsgId().equals("indirect_magic"));
         boolean activateForPlayer = SecondChanceConfig.CONFIG.secondChancePlayers.get() && source.getMsgId().equals("player");
         boolean activateForTrident = SecondChanceConfig.CONFIG.secondChanceTridents.get() && source.getMsgId().equals("trident");
         boolean activateForArrow = SecondChanceConfig.CONFIG.secondChanceArrows.get() && source.getMsgId().equals("arrow");
