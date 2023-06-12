@@ -31,7 +31,7 @@ public abstract class MixinLivingEntity extends Entity {
 
     @Inject(method = "aiStep", at = @At(value = "HEAD"))
     private void SCF_countTicksFalling(CallbackInfo ci) {
-        if (!this.onGround) {
+        if (!this.onGround()) {
             this.ticksFalling++;
         } else if (!this.isInWater()) {
             this.ticksFalling = 0;
